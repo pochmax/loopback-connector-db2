@@ -11,7 +11,7 @@ const assert = require('assert');
 require('./init.js');
 
 // const DataSource = require('loopback-datasource-juggler').DataSource;
-const db, config;
+let db, config;
 
 before(function() {
   db = global.getDataSource();
@@ -45,7 +45,7 @@ describe('discoverModels', function() {
               console.error(err);
               done(err);
             } else {
-              const views = false;
+              let views = false;
               models.forEach(function(m) {
                 // console.dir(m);
                 if (m.type === 'view') {
@@ -90,7 +90,7 @@ describe('discoverModels', function() {
           console.error(err);
           done(err);
         } else {
-          const views = false;
+          let views = false;
           models.forEach(function(m) {
             // console.dir(m);
             if (m.type === 'view') {
@@ -120,7 +120,7 @@ describe('Discover models including other users', function() {
           console.error(err);
           done(err);
         } else {
-          const others = false;
+          let others = false;
           models.forEach(function(m) {
             // console.dir(m);
             if (m.owner !== config.schema) {
@@ -284,7 +284,7 @@ describe('Discover model foreign keys', function() {
         } else {
           const fkNames = ['RESERVATION_CUSTOMER_FK', 'RESERVATION_LOCATION_FK',
             'RESERVATION_PRODUCT_FK'];
-          const areFKInvalid = false;
+          let areFKInvalid = false;
           models.forEach(function(m) {
             assert(m.fkTableName === 'RESERVATION');
             if (!(fkNames.indexOf(m.fkName) > -1)) {

@@ -13,7 +13,7 @@ require('should');
 const assert = require('assert');
 const Schema = require('loopback-datasource-juggler').Schema;
 
-const db, UserData, NumberData, DateData;
+let db, UserData, NumberData, DateData;
 
 describe('migrations', function() {
   before(function(done) {

@@ -11,7 +11,7 @@ require('./init.js');
 const assert = require('assert');
 const DataSource = require('loopback-datasource-juggler').DataSource;
 
-const config;
+let config;
 
 before(function() {
   config = global.config;

@@ -13,7 +13,7 @@ require('should');
 
 const Transaction = require('loopback-connector').Transaction;
 
-const db, Post;
+let db, Post;
 
 describe('transactions', function() {
   before(function() {
@@ -33,7 +33,7 @@ describe('transactions', function() {
       db.automigrate('PostTX', done);
     });
 
-    const currentTx;
+    let currentTx;
     // Return an async function to start a transaction and create a post
     function createPostInTx(post) {
       return function(done) {
