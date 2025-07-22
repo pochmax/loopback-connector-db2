@@ -12,7 +12,7 @@ require('./init.js');
 require('should');
 const assert = require('assert');
 
-const db, uniquePkIndex, properties, SimpleEmployee;
+let db, uniquePkIndex, properties, SimpleEmployee;
 
 describe('autoupdate', function() {
   before(function(done) {
