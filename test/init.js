@@ -15,11 +15,11 @@ let DataSource = juggler.DataSource;
 if (process.env.CI && process.env.PACKAGE_NAME &&
   (process.env.BUILD_NUMBER || process.env.BUILD_ID) &&
   (process.env.nodeVersion || process.env.node)) {
-  var buildName = process.env.PACKAGE_NAME.split('-')[2].toUpperCase();
-  var buildNumber = process.env.BUILD_NUMBER || process.env.BUILD_ID;
-  var nodeVersion = process.env.nodeVersion || process.env.node;
-  var os = process.env.OS || process.platform;
-  var schemaName = 'SCHEMA' + buildNumber +
+  const buildName = process.env.PACKAGE_NAME.split('-')[2].toUpperCase();
+  const buildNumber = process.env.BUILD_NUMBER || process.env.BUILD_ID;
+  const nodeVersion = process.env.nodeVersion || process.env.node;
+  const os = process.env.OS || process.platform;
+  const schemaName = 'SCHEMA' + buildNumber +
     '_' + buildName + '_' + os.toUpperCase() + '_' + nodeVersion;
 }
 
