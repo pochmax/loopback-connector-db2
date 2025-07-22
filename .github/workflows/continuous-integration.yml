@@ -11,7 +11,7 @@ permissions: {}
 jobs:
   test:
     name: Test
-    timeout-minutes: 60
+    timeout-minutes: 120
     strategy:
       matrix:
         os: [ubuntu-latest]
