@@ -15,21 +15,21 @@ let DataSource = juggler.DataSource;
 if (process.env.CI && process.env.PACKAGE_NAME &&
   (process.env.BUILD_NUMBER || process.env.BUILD_ID) &&
   (process.env.nodeVersion || process.env.node)) {
-  var buildName = process.env.PACKAGE_NAME.split('-')[2].toUpperCase();
-  var buildNumber = process.env.BUILD_NUMBER || process.env.BUILD_ID;
-  var nodeVersion = process.env.nodeVersion || process.env.node;
-  var os = process.env.OS || process.platform;
-  var schemaName = 'SCHEMA' + buildNumber +
+  const buildName = process.env.PACKAGE_NAME.split('-')[2].toUpperCase();
+  const buildNumber = process.env.BUILD_NUMBER || process.env.BUILD_ID;
+  const nodeVersion = process.env.nodeVersion || process.env.node;
+  const os = process.env.OS || process.platform;
+  const schemaName = 'SCHEMA' + buildNumber +
     '_' + buildName + '_' + os.toUpperCase() + '_' + nodeVersion;
 }
 
-var config = {
-  username: process.env.DB2_USERNAME,
-  password: process.env.DB2_PASSWORD,
+const config = {
+  username: process.env.DB2_USERNAME || 'db2inst1',
+  password: process.env.DB2_PASSWORD || 'password',
   hostname: process.env.DB2_HOSTNAME || 'localhost',
   port: process.env.DB2_PORTNUM || 60000,
   database: process.env.DB2_DATABASE || 'testdb',
-  schema: schemaName || process.env.DB2_SCHEMA || 'STRONGLOOP',
+  schema: process.env.DB2_SCHEMA || 'STRONGLOOP',
 };
 
 global.config = config;

@@ -10,10 +10,10 @@ process.env.NODE_ENV = 'test';
 
 require('./init.js');
 require('should');
-var assert = require('assert');
-var Schema = require('loopback-datasource-juggler').Schema;
+const assert = require('assert');
+const Schema = require('loopback-datasource-juggler').Schema;
 
-var db, UserData, NumberData, DateData;
+let db, UserData, NumberData, DateData;
 
 describe('migrations', function() {
   before(function(done) {
@@ -269,7 +269,7 @@ describe('migrations', function() {
   });
 
   it('should autoupdate', function(done) {
-    var userExists = function(cb) {
+    const userExists = function(cb) {
       query('SELECT * FROM ' + global.config.schema + '.\"UserData\"',
         function(err, res) {
           cb(!err && res[0].email === 'test@example.com');
@@ -416,6 +416,6 @@ describe('migrations', function() {
   });
 });
 
-var query = function(sql, cb) {
+const query = function(sql, cb) {
   db.adapter.execute(sql, cb);
 };
